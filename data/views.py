@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import  Httpresponse
+from django.http import  HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
@@ -34,6 +34,15 @@ def loginPage(request):
     return render(request, "index.html")
 
 
+def login(request):
+    if request.method == 'POST':
+        uname = request.POST.get('unmae')
+        upwd = request.POST.get('upwd')
+
+        u2 = authenticate(request, username = uname, password = upwd)
+
+        login(request, u2)
+        return render(request, 'question.html')
 
 def questionadd(request):
     tilte = request.POST["title"]

@@ -21,4 +21,4 @@ class Queadd(models.Model):
     uid = models.ForeignKey(User, default=0, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.qid.title

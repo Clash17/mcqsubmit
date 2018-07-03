@@ -21,7 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.loginPage),
     path('signup', views.signup),
+    path('queaddc/<int:idv>', views.qutionchange),
+    path('queadd', views.questionadd),
     path('login', views.loginfunc),
     path('logout', views.logoutfunc),
+    path('uploads', views.uploads),
+    path('change/<int:iv>', views.change),
     path('questionpage', views.addque)
 ]

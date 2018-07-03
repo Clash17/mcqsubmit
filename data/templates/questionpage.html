@@ -12,7 +12,7 @@
   </a>
 </nav>
 <div class="container">
-	<form>
+	<form action="/queadd" method="post">
         {% csrf_token %}
 		<div class="row">
 		
@@ -24,37 +24,37 @@
   		<div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> A)</b>
+    <input type="radio" value="1" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> A)</b>
     </div>
   </div>
-  <input type="text" name="oa" class="form-control" aria-label="Text input with radio button">
+  <input type="text" name="oa"  class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
   		<div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px">B)</b>
+    <input type="radio" value="2" name="answer"  aria-label="Radio button for following text input">Option<b style="font-size: 30px">B)</b>
     </div>
   </div>
-  <input name="oa" type="text" class="form-control" aria-label="Text input with radio button">
+  <input name="ob"  type="text" class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
   		<div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> C)</b>
+    <input type="radio" value="3" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> C)</b>
     </div>
   </div>
-  <input type="text" name="oc" class="form-control" aria-label="Text input with radio button">
+  <input type="text" name="oc"  class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
   		<div class="input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" name="answer" aria-label="Radio button for following text input">Option <b style="font-size: 30px">D)</b>
+    <input type="radio" name="answer" value="4" aria-label="Radio button for following text input">Option <b style="font-size: 30px">D)</b>
     </div>
   </div>
   <input type="text" name="od" class="form-control" aria-label="Text input with radio button">

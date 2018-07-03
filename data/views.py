@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+
+from .models import *
 
 
 # Create your views here.
@@ -46,13 +47,62 @@ def loginfunc(request):
 
 
 def questionadd(request):
-    tilte = request.POST["title"]
-    oa = request.POST["oa"]
-    ob = request.POST["ob"]
-    oc = request.POST["oc"]
-    od = request.POST["od"]
-    ans = request.POST["ans"]
-    return HttpResponse("hello")
+    if request.method == 'POST' and request.user.is_authenticated:
+        title = request.POST["title"]
+        oa = request.POST["oa"]
+        ob = request.POST["ob"]
+        oc = request.POST["oc"]
+        od = request.POST["od"]
+        ans = request.POST["answer"]
+        print(ans)
+        ques = Questions.objects.create(title=title, oa=oa, ob=ob, oc=oc, od=od, ans=ans)
+        queadd = Queadd.objects.create(qid=ques, uid=request.user)
+        return render(request, "questionpage.html")
+    return HttpResponseRedirect("/")
+
+
+def qutionchange(request, idv):
+    if request.method == 'POST' and request.user.is_authenticated:
+        title = request.POST["title"]
+        oa = request.POST["oa"]
+        ob = request.POST["ob"]
+        oc = request.POST["oc"]
+        od = request.POST["od"]
+        ans = request.POST["answer"]
+        q = Queadd.objects.get(id=idv)
+        if q.uid == request.user:
+            que = q.qid
+            que.title = title
+            que.oa = oa
+            que.ob = ob
+            que.oc = oc
+            que.od = od
+            que.ans = ans
+            que.save()
+            return HttpResponseRedirect("/uploads")
+    return HttpResponseRedirect("/")
+
+
+def uploads(request):
+    if request.user.is_authenticated:
+        q = Queadd.objects.filter(uid=request.user)
+        context = {
+            'q': q
+        }
+        return render(request, "uploads.html", context)
+    return HttpResponseRedirect("/")
+
+
+def change(request, iv):
+    if request.user.is_authenticated:
+        q = Queadd.objects.get(id=iv)
+        if q.uid == request.user:
+            que = q.qid
+            context = {
+                'que': que
+            }
+            return render(request, "questionupdate.html", context)
+    return HttpResponseRedirect("/")
 
 
 def logoutfunc(request):

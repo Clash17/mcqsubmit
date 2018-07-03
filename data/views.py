@@ -54,7 +54,6 @@ def questionadd(request):
         oc = request.POST["oc"]
         od = request.POST["od"]
         ans = request.POST["answer"]
-        print(ans)
         ques = Questions.objects.create(title=title, oa=oa, ob=ob, oc=oc, od=od, ans=ans)
         queadd = Queadd.objects.create(qid=ques, uid=request.user)
         return render(request, "questionpage.html")
@@ -94,14 +93,17 @@ def uploads(request):
 
 
 def change(request, iv):
-    if request.user.is_authenticated:
-        q = Queadd.objects.get(id=iv)
+    if request.user.is_authenticated :
+        try:
+            q = Queadd.objects.get(id=iv)
+        except Exception:
+            return HttpResponseRedirect("/")
         if q.uid == request.user:
             que = q.qid
             context = {
                 'que': que
             }
-            return render(request, "questionupdate.html", context)
+        return render(request, "questionupdate.html", context)
     return HttpResponseRedirect("/")
 
 

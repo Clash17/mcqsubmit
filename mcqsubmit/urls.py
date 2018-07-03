@@ -19,5 +19,9 @@ from data import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('queadd', views.questionadd)
+    path('', views.loginPage),
+    path('signup', views.signup),
+    path('login', views.loginfunc),
+    path('logout', views.logoutfunc),
+    path('questionpage', views.addque)
 ]

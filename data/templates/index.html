@@ -25,21 +25,21 @@
       <div class="tab-content">
         <div id="signup">   
           
-          <form action="/" method="post">
-          
+          <form action="/signup" method="post">
+          {% csrf_token %}
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input name="ufname" type="text" required autocomplete="off" />
             </div>
         
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input name="ulname" type="text" required autocomplete="off"/>
             </div>
           </div>
 
@@ -47,23 +47,23 @@
               <label>
                 Username<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
-            </div>
-          </div>
+              <input name="uname" type="text" required autocomplete="off"/>
+        </div>
+
 
 
           <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input name="uemail" type="email"required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input name="upwd" type="password"required autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>
@@ -73,25 +73,25 @@
         </div>
         
         <div id="login">   
-          <h1>Welcome Back!</h1>
+
           
-          <form action="/" method="post">
-          
+          <form action="/login" method="post">
+          {% csrf_token %}
             <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Username <span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input name="uname" type="text" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input name="upwd" type="password"required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+
           
           <button class="button button-block"/>Log In</button>
           

@@ -13,10 +13,11 @@
 </nav>
 <div class="container">
 	<form>
+        {% csrf_token %}
 		<div class="row">
 		
     <label for="exampleFormControlTextarea1">Enter your question details here</label>
-    <textarea class="form-control" style="background-color: rgba(0,0,0,0.8);color: white; padding-left:25px;padding-right:25px;"id="exampleFormControlTextarea1" rows="16"></textarea>
+    <textarea name="title" class="form-control" style="background-color: rgba(0,0,0,0.8);color: white; padding-left:25px;padding-right:25px;"id="exampleFormControlTextarea1" rows="16"></textarea>
   </div>
   <div class="row">
   	<div class="col-lg-6">
@@ -26,7 +27,7 @@
     <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> A)</b>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with radio button">
+  <input type="text" name="oa" class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
@@ -36,7 +37,7 @@
     <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px">B)</b>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with radio button">
+  <input name="oa" type="text" class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
@@ -46,7 +47,7 @@
     <input type="radio" name="answer" aria-label="Radio button for following text input">Option<b style="font-size: 30px"> C)</b>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with radio button">
+  <input type="text" name="oc" class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   	<div class="col-lg-6">
@@ -56,7 +57,7 @@
     <input type="radio" name="answer" aria-label="Radio button for following text input">Option <b style="font-size: 30px">D)</b>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with radio button">
+  <input type="text" name="od" class="form-control" aria-label="Text input with radio button">
 </div>
   	</div>
   </div>

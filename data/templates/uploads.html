@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign-Up/Login Form</title>
+  <link href='/static/extra/font.txt' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/extra/cdn.js">
+
+  
+      <link rel="stylesheet" href="/static/css/style.css">
+
+  
+</head>
+
+<body>
+{% for i in q %}
+{{i.qid.title}} <a href="/change/{{i.id}}">Edit</a><br>
+{% endfor %}
+</body>
+
+</html>

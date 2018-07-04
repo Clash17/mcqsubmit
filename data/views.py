@@ -85,8 +85,10 @@ def qutionchange(request, idv):
 def uploads(request):
     if request.user.is_authenticated:
         q = Queadd.objects.filter(uid=request.user)
+        m = 0
         context = {
-            'q': q
+            'q' : q,
+            'm' : m
         }
         return render(request, "uploads.html", context)
     return HttpResponseRedirect("/")

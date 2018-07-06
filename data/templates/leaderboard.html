@@ -45,12 +45,12 @@
   </thead>
   <tbody>
     
-	 {% for i in q %} 
+	 {% for i in v %}
   
     <tr>
-      <th scope="row">{{ Rank no.}}</th>
-      <td>{{ Username }}</td>
-      <td>{{ total MCQ }}</td>
+      <th scope="row">{{ i.rank }}</th>
+      <td>{{ i.name }}</td>
+      <td>{{ i.count }}</td>
       
     </tr>
 	

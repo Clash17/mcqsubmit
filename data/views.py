@@ -1,17 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-
+import operator
 from .models import *
 
 
 class PairC:
     name = " "
-    Count = 0
+    count = 0
+    rank = 0
 
     def __init__(self, name, count):
         self.name = name
         self.count = count
+
+    def setRank(self, r):
+        self.rank = r
 
 
 # Create your views here.
@@ -130,8 +134,13 @@ def leardboard(request):
         qc = Queadd.objects.filter(uid=i).count()
         name = i.first_name + " " + i.last_name
         pair = PairC(name, qc)
-
         vector.append(pair)
+    vector.sort(key=operator.attrgetter('count'))
+    vector.reverse()
+    rk = 1
+    for i in vector:
+        i.setRank(rk)
+        rk += 1
     context = {
         'v': vector
     }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    
+    CLASH QUESTION HUB
+  </a>
+</nav>
+<div class="container"> 
+	<form action="/queaddc/{{que.id}}" method="post">
+        {% csrf_token %}
+		<div class="row">
+		
+    <label for="exampleFormControlTextarea1">Enter your question details here</label>
+    <textarea name="title" class="form-control" style="background-color: rgba(0,0,0,0.8);color: white; padding-left:25px;padding-right:25px;"id="exampleFormControlTextarea1" rows="16">{{que.title}}</textarea>
+  </div>
+  <div class="row">
+  	<div class="col-lg-6">
+  		<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+    <input type="radio" value="1" name="answer" aria-label="Radio button for following text input" {% if que.ans == '1' %} checked {% endif %}>Option<b style="font-size: 30px"> A)</b>
+    </div>
+  </div>
+  <input type="text" name="oa"  value="{{que.oa}}" class="form-control" aria-label="Text input with radio button">
+</div>
+  	</div>
+  	<div class="col-lg-6">
+  		<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+    <input type="radio" value="2" name="answer"  aria-label="Radio button for following text input" {% if que.ans == '2' %} checked {% endif %}>Option<b style="font-size: 30px">B)</b>
+    </div>
+  </div>
+  <input name="ob"  type="text" value="{{que.ob}}" class="form-control" aria-label="Text input with radio button">
+</div>
+  	</div>
+  	<div class="col-lg-6">
+  		<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+    <input type="radio" value="3" name="answer" aria-label="Radio button for following text input" {% if que.ans == '3' %} checked {% endif %}>Option<b style="font-size: 30px"> C)</b>
+    </div>
+  </div>
+  <input type="text" name="oc" value="{{que.oc}}" class="form-control" aria-label="Text input with radio button">
+</div>
+  	</div>
+  	<div class="col-lg-6">
+  		<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+    <input type="radio" name="answer" value="4" aria-label="Radio button for following text input">Option <b style="font-size: 30px">D)</b>
+    </div>
+  </div>
+  <input type="text" name="od" value="{{que.od}}" class="form-control" aria-label="Text input with radio button" {% if que.ans == '4' %} checked {% endif %}>
+</div>
+  	</div>
+  </div>
+  		<div class="col-lg-12" style="text-align: center;"><button type="submit" class="btn btn-lg btn-success">Submit</button></div>
+	</form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

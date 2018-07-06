@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, inherit-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bare - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+    body {
+      background-image:url(clashup.jpg);
+      background-repeat:no-repeat;
+      background-size:cover;
+
+    }
+      nav{
+        background-color: red;
+        height: 50px;
+      }
+      #b1{
+        height: 50px;
+        width:100%;
+        background-color:red;
+      }
+      #c1{
+        background-color: inherit;
+        border-color:#1B4F72;
+        border-style: solid;
+        height: 675px;
+
+      }
+      #c2{
+        background-color: inherit;
+        height: 675px;
+        border-radius: 10px;
+      }
+      #c3{
+        background-color:inherit;
+        border-color:#1B4F72 ;
+        border-style: solid;
+        height: 675px;
+      }
+      /* The Modal (background) */
+      .modal{
+        display: none;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        padding-top: 80px;
+        position: fixed;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content{
+        postion:relative;
+        margin: auto;
+        padding: 0;
+        border:7px solid #3d3d5c;
+        width:50%;
+        background:linear-gradient(to bottom  , #4db8ff,#004d80,#003d66, #0099ff);
+        font-size: 100%;
+        animation-name:animateleft;
+        animation-duration: 0.5s
+      }
+      @keyframes animateleft {
+        from{left:-10px;opacity:0}
+        to{left:0px;opacity: :0.5}
+      }
+      .close{
+        color:white;
+        font-size: 30px;
+        float: right;
+      }
+      .close:hover{
+        color: inherit;
+        cursor: pointer;
+      }
+      .modal-header{
+        padding: 5px 5px;
+        background-color:  #141f1f;
+        color:  #009999;
+        font-weight: bold;
+      }
+      .modal-body{
+        padding: 5px 5px;
+
+      }
+      .modal-footer{
+        padding: 5px 5px;
+        background-color: black;
+        color: purple;
+      }
+      #return1{
+        background:linear-gradient(to right,#000066, #004080);
+        font-size:100%;
+        color:white;
+        font-weight: bold;
+        border:5px;
+        width:20%;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      #exit1{
+        background:linear-gradient(to right,#000066, #004080);
+        font-size:100%;
+        color:white;
+        border:5px;
+        width:20%;
+        padding: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      #return2{
+        background:linear-gradient(to right,#000066, #004080);
+        font-size:100%;
+        color:white;
+        border:5px;
+        width:20%;
+        padding: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      #return3{
+        background:linear-gradient(to right,#000066, #004080);
+        font-size:25px;
+        color:white;
+        border:5px;
+        width:80%;
+        padding: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      #input1{
+        margin-left: 40px;
+        padding: 27px 30px;
+        width:75%;
+        margin-top: 20px;
+        background:linear-gradient(#01213E,#010A14);
+        border-radius: 10px;
+        border-color: #46CCF3;
+      }
+      #modalharm{
+        display: none;
+        width:80%;
+        height:40%;
+        left:30px;
+        top:150px;
+        padding-top: 10px;
+        position: fixed;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      #modalskip{
+        display: none;
+        width:20%;
+        height:20%;
+        position: fixed;
+        left:400px;
+        top:400px;
+        padding-top: 10px;
+
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      #harm1{
+        postion:relative;
+        margin: auto;
+        padding: 0;
+        border:7px solid #3d3d5c;
+        width:50%;
+        background:linear-gradient(to bottom  , #4db8ff,#004d80,#003d66, #0099ff);
+        font-size: 10%;
+        animation-name:animateleft1;
+        animation-duration: 4s
+      }
+      #skip1{
+        postion:relative;
+        margin: auto;
+        padding: 0;
+        border:7px solid #3d3d5c;
+        width:40%;
+        background:linear-gradient(to bottom  , #4db8ff,#004d80,#003d66, #0099ff);
+        font-size: 10%;
+        animation-name:animateleft2;
+        animation-duration: 4s
+      }
+      @keyframes animateleft1 {
+        from{left:-10px;opacity:0}
+        to{left:80px;opacity:1}
+      }
+      @keyframes animateleft2 {
+        from{left:-10px;opacity:0}
+        to{left:50px;opacity:1}
+      }
+      #harm2{
+        padding: 1px 1px;
+      }
+      #harm2{
+        padding: 10px 10px;
+      }
+      .button2{
+        width:10%;
+        border-color:#01213E ;
+        padding: 5%;
+        border-radius: 30px;
+      }
+      #input10{
+        width:70%;
+        padding: 30px;
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: inherit;
+        border-color: #46CCF3;
+        background:linear-gradient(#01213E,#010A14);
+        color: white;
+        font-size: 100%;
+        transition: width 0.5s;
+      }
+      #input20{
+        width:70%;
+        padding: 30px;
+        margin-left: 10px;
+        border-radius: 10px;
+        /*background-color: inherit;*/
+        border-color: #46CCF3;
+        background:linear-gradient(#01213E,#010A14);
+        color: white ;
+        font-size: 100%;
+        transition: width 0.5s;
+      }
+      #input30{
+        width:70%;
+        padding: 30px;
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: inherit;
+        border-color: #46CCF3;
+        background:linear-gradient(#01213E,#010A14);
+        color:white;
+        font-size: 100%;
+        transition: width 0.5s;
+      }
+      #input40{
+        width:70%;
+        padding: 30px;
+        margin-left: 10px;
+        border-radius: 10px;
+        background-color: inherit;
+        border-color: #46CCF3;
+        background:linear-gradient(#01213E,#010A14);
+        color:white;
+        font-size: 100%;
+        transition: width 0.5s;
+      }
+
+      #input10:hover,#input20:hover,#input30:hover,#input40:hover{
+        background-color: red;
+        font-size: 200%;
+        color:white;
+        transition: font-size 1s;
+      }
+      .button3:hover,.button1:hover,#return2:hover,#return1:hover,#exit1:hover{
+        background: linear-gradient(to right,#96A2C2,#01213E);
+      }
+      .button1{
+        margin-left: 40px;
+        padding: 20px 20px;
+        width:75%;
+        margin-top: 20px;
+        background:linear-gradient(to right,#000066, #004080);
+        font-size: 200%;
+        font-style: normal;
+        font-weight: bold;
+        font-family: sans-serif;
+        color:white;
+        border-radius:10%;
+      }
+      .button3{
+        width:80%;
+        border-color: inherit;
+        background:linear-gradient(to right,#000066, #004080);
+        padding: 7%;
+        margin-left: 10%;
+        margin-top: 15%;
+        color: white;
+        font-size: 150%;
+        font-weight: bold;
+        font-family: sans-serif;
+        border-radius: 7%;
+      }
+      #c31{
+        height: 100px;
+      }
+      #c32{
+        height: 50px;
+      }
+      #divimg{
+        border-radius: 2px;
+        margin-top:7px;
+        margin-left: 37px;
+      }
+      #p10{
+        font-size: 150%;
+        color: white;
+      }
+    .lifeline1{
+      width:100%;
+    }
+    .lifeline2{
+      width:100%;
+    }
+      #lifbg1{
+        border-radius: 20px;
+        width:100%;
+        padding:2px;
+        background:linear-gradient(to right,#000066, #004080);
+      }
+
+      @keyframes animateleft {
+        from{left:-10px;opacity:0}
+        to{left:0px;opacity: :0.5}
+      }
+      #btlf1{
+        width:30%;
+        padding:25px;
+        border-radius:15px;
+        background: url(slide1.jpg);
+        background-size: cover;
+        color: green;
+        font-size: 10px;
+        font-weight:bold;
+        position: relative  ;
+        left:1px;
+        transition: left 2s;
+      }
+      #lifbg2{
+        border-radius: 20px;
+        width:100%;
+        padding:2px;
+        background:linear-gradient(to right,#000066, #004080);
+      }
+      #btlf2{
+        width:30%;
+        padding:25px;
+        border-radius:15px;
+        background: url(slide1.jpg);
+        background-size: cover;
+        color: green;
+        font-size: 10px;
+        font-weight:bold;
+        position: relative;
+        left:1px;
+        transition: left 2s;
+      }
+      #navbt1{
+        margin-left: 50%;
+        margin-top:5px;
+        width:130px;
+        height:10%;
+        padding: 7px;
+        background:linear-gradient(to right,#000066, #004080);
+        border-radius: 5px;
+        color:white;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: inherit;
+      }
+      #navbt1:hover{
+        background-color: black;
+        color: white;
+      }
+      #navimodal{
+        display: none;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        padding-top: 80px;
+        position: fixed;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+          }
+      #options{
+        postion:relative;
+        margin: auto;
+        padding: 0;
+        border:5px solid  #3d3d5c;
+        width:50%;
+        background-color:#171718;
+        font-size: 100%;
+        animation-name:animatetop;
+        animation-duration: 0.5s
+          }
+          @keyframes animatetop {
+            from{top:-10px;opacity:0}
+            to{top:0px;opacity: :0.5}
+          }
+          #options1{
+            padding: 5px 5px;
+
+          }
+          #txt1{
+            background:url(clashup1.jpg);
+            border-color:#1B4F72;
+            font-size: 20px;
+            color: white;
+            border-radius: 10px;
+            margin-right: 20px;
+          }
+          #p11{
+            font-size:40px;
+            color:grey;
+            margin-left:20px;
+            border-radius:5px;
+            width:90px;
+            background:blue;
+            border-color: black;
+          }
+          #p11:hover{
+            color: white;
+          }
+    </style>
+  </head>
+
+<body >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-inverse  ">
+      <div class="container-fluid">
+            <ul class="nav navbar-nav" style=" list-style-type:none;
+             float:left;
+             width=100%;
+             margin: 0 0 0 10px;">
+             <li><img src="ieee.png" style="width:55%; height:10%;"></li>
+                 <li><span class="glyphicon glyphicon-time" style="font-size:25px;color:white; margin-top:12px; margin-left:0%;"></span></li>
+             <li style="font-size:20px; font-weight:bold; color:white; margin-top:12px; margin-left:0px;">Time</li>
+
+             <div class="navbar-form navbar-left">
+               <div class="form-group">
+                 <input type="text" class="form-control"  disabled style="width:40%; color:black; font-weight:bold; font-size:16px;">
+               </div>
+             </div>
+             <li><span class="glyphicon glyphicon-question-sign" style="font-size:20px;color:white; margin-top:12px; margin-left:0%;"></span></li>
+                <li style="font-size:20px; font-weight:bold; color:white; margin-top:13px; margin-left:7px;">Question no.</li>
+                <div class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control"  disabled style="width:20%; color:black; font-weight:bold; font-size:20px;">
+                  </div>
+                </div>
+           </ul>
+
+           <ul class="nav navbar-nav navbar-right">
+              <li><button id="navbt1" type="button" class="btn navbar-btn"> Exit</button></li>
+             <li><img src="pict.png" style="width:55%; height:10%; margin-left:44%;"></li>
+           </ul>
+        </div>
+        <div class="modal" id="navimodal">
+          <div class="modal-content" id="options">
+            <div class="modal-body" id="options1">
+              <p style="font-size:150%; color:black; font-weight:bold;">Are you sure you want to leave the game?</p>
+              <button id="exit1" >Leave</button><hr>
+              <p style="font-size:150%; color:black; font-weight:bold;">Go back ?</p>
+              <button id="return2">Play</button>
+            </div>
+          </div>
+        </div>
+        <!-- /container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div id="c1" class="col-lg-3" style=" border-radius:10px; margin-left:20px;">
+          <button id="myBtn"  class="button1">Instructions</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2><center>Lifelines</center></h2>
+              </div>
+              <div class="modal-body">
+                <h3 style="color:black; font-weight:bold;">Skip</h3>
+                <p id="p10">It lets you to skip current question and go to the next one</p>
+                <p id="p10">When you consecutively answer three questions right this lifeline will become active again</p>
+                <hr>
+                <h3 style="color:black; font-weight:bold;">Harmonics</h3>
+                <p id="p10">Yet to be included</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id ="return1" class="btn btn-default">Return</button>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <h1 style="background-color:#01213E; color:white;  width:50%; height:7%; margin-left:20%; border-radius:5px;">Score</h1>
+          <form>
+            <input type="text" id="input1" disabled placeholder="Score"></input>
+          </form>
+          <br>
+          <br>
+          <div class="lifeline1">
+            <h1 style="background-color:#01213E; color:white; padding:2px 2px; width:50%; height:10%; margin-left:20%; border-radius:5px;">Lifelines</h1>
+            <br>
+            <div id="lifbg1">
+              <button id="btlf1" onclick="move1()">Skip</button></a>
+            </div>
+          </div>
+            <br>
+            <div class="lifeline2">
+            <div id="lifbg2">
+              <button id="btlf2" onclick="move2()">Harmonics</button>
+            </div>
+          </div>
+<div id="modalharm" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" id="harm1">
+    <div class="modal-body" id="harm2">
+      <h1 style="color:black;">Chose the number of questions.</h1><hr><br>
+        <button  id="p11">1</button>
+        <button id="p11">2</button>
+        <button id="p11">3</button>
+        <button id="p11">4</button>
+        <button id="p11">5</button>
+    </div>
+  </div>
+</div>
+<div id="modalskip" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" id="skip1">
+    <div class="modal-body" id="skip2">
+    <button id="return3">skip</button>
+    </div>
+  </div>
+</div>
+    </div>
+    <div id="c2" class="col-lg-5" style="margin-left:40px;" >
+      <textarea name="question" rows="23" cols="55" id="txt1" > question</textarea>
+    </div>
+    <div id="c3" class="col-lg-3" style=" border-radius:10px; margin-left:40px;">
+      <h1 style="background-color:#01213E; color:white;  width:50%; height:7%; margin-left:20%; border-radius:5px;"><center>Options</center></h1>
+      <br>
+      <br>
+      <button type="button" id="btn11" class="button2" onclick="btnfn1()" style="background-image:url(IMG_20170808_171447.jpg); background-size:cover; background-color:inherit;"></button>
+      <input type="text"  placeholder="option1" id="input10"></input>
+      <br> <br>
+      <button type="button" class="button2" onclick="btnfn2()" style="background-image:url(IMG_20170808_171447.jpg); background-size:cover; background-color:inherit;"></button>
+      <input type="text" disabled placeholder="option2" id="input20"></input>
+      <br> <br>
+      <button type="button" class="button2" onclick="btnfn3()" style="background-image:url(IMG_20170808_171447.jpg); background-size:cover; background-color:inherit;"></button>
+      <input type="text" disabled placeholder="option3" id="input30"></input>
+      <br> <br>
+      <button type="button" class="button2" onclick="btnfn4()" style="background-image:url(IMG_20170808_171447.jpg); background-size:cover; background-color:inherit;"></button>
+      <input type="text" disabled placeholder="option4" id="input40"></input>
+      <br>
+      <button type="button" class="button3" onclick="btf3()" ><center>Submit</center></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="divimg">
+  <img id="img1" src="giphy (5).jpg" style="width:360px; height:70px; ">
+  <img id="img2" src="giphy (5).jpg" style="width:360px; height:70px; ">
+  <img  id="img3" src="giphy (5).jpg" style="width:360px; height:70px; ">
+  <img id="img4" src="giphy (5).jpg" style="width:360px; height:70px; ">
+</div>
+<script>
+var w=document.getElementById('input10');
+var w1=document.getElementsByClassName('input10');
+var x=document.getElementById('input20');
+var y=document.getElementById('input30');
+var z=document.getElementById('input40');
+  var r1="giphy (10).gif";
+  var r2="giphy (20).gif";
+  var r3="giphy (30).gif";
+  var r4="giphy (40).gif";
+  var r5="giphy (5).jpg";
+function btnfn1(){
+  w.style.background='linear-gradient(#59F8E8,#02385F)';
+  w.style.width='80%';
+  x.style.width='70%';
+  y.style.width='70%';
+  z.style.width='70%';
+  w.style.color='black';
+  x.style.color='white';
+  y.style.color='white';
+  z.style.color='white';
+  x.style.background='linear-gradient(#01213E,#010A14)';
+  y.style.background='linear-gradient(#01213E,#010A14)';
+  z.style.background='linear-gradient(#01213E,#010A14)';
+  document.getElementById('img1').src=r1;
+  document.getElementById('img2').src=r5;
+  document.getElementById('img3').src=r5;
+  document.getElementById('img4').src=r5;
+}
+function btnfn2(){
+  x.style.background='linear-gradient(#59F8E8,#02385F)';
+  w.style.background='linear-gradient(#01213E,#010A14)';
+  w.style.width='70%';
+  y.style.width='70%';
+  z.style.width='70%';
+  x.style.width='80%';
+  x.style.color='black';
+  w.style.color='white';
+  y.style.color='white';
+  z.style.color='white';
+  y.style.background='linear-gradient(#01213E,#010A14)';
+  z.style.background='linear-gradient(#01213E,#010A14)';
+  document.getElementById('img2').src=r2;
+  document.getElementById('img1').src=r5;
+  document.getElementById('img3').src=r5;
+  document.getElementById('img4').src=r5;
+}
+ function btnfn3(){
+  y.style.background='linear-gradient(#59F8E8,#02385F)';
+  y.style.width='80%';
+  w.style.width='70%';
+  x.style.width='70%';
+  z.style.width='70%';
+  y.style.color='black';
+  w.style.color='white';
+  x.style.color='white';
+  z.style.color='white';
+  w.style.background='linear-gradient(#01213E,#010A14)';
+  x.style.background='linear-gradient(#01213E,#010A14)';
+  z.style.background='linear-gradient(#01213E,#010A14)';
+document.getElementById('img3').src=r3;
+document.getElementById('img1').src=r5;
+document.getElementById('img2').src=r5;
+document.getElementById('img4').src=r5;
+}
+ function btnfn4(){
+  z.style.background='linear-gradient(#59F8E8,#02385F)';
+  z.style.width='80%';
+  w.style.width='70%';
+  x.style.width='70%';
+  y.style.width='70%';
+  z.style.color='black';
+  x.style.color='white';
+  y.style.color='white';
+  w.style.color='white';
+  x.style.background='linear-gradient(#01213E,#010A14)';
+  y.style.background='linear-gradient(#01213E,#010A14)';
+  w.style.background='linear-gradient(#01213E,#010A14)';
+  document.getElementById('img4').src=r4;
+  document.getElementById('img1').src=r5;
+  document.getElementById('img2').src=r5;
+  document.getElementById('img3').src=r5;
+}
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+var c=document.getElementById('return1');
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+c.onclick=function () {
+  modal.style.display="none";
+}
+var move=document.getElementById('btlf1');
+var modalharm=document.getElementById('modalskip')
+
+function move1()
+{
+  move.style.left="236px";
+  document.getElementById('lifbg1').style.background='linear-gradient(#01213E,#010A14)';
+  document.getElementById('lifbg2').style.background='linear-gradient(to right,#000066, #004080)';
+  modalskip.style.display="block";
+
+}
+var slide=document.getElementById('btlf2');
+var modalharm=document.getElementById('modalharm')
+function move2()
+{
+    slide.style.left="236px";
+    move.style.left="1px";
+    document.getElementById('lifbg2').style.background='linear-gradient(#01213E,#010A14)';
+    document.getElementById('lifbg1').style.background='linear-gradient(to right,#000066, #004080)';
+    modalharm.style.display="block";
+}
+var nav1 = document.getElementById('navimodal');
+var nbtn = document.getElementById('navbt1');
+var d=document.getElementById('return2');
+nbtn.onclick = function() {
+    nav1.style.display = "block";
+}
+d.onclick=function(){
+  nav1.style.display="none";
+}
+</script>
+<footer style="background-color:black; padding:1px;">
+  <p><center>Thank you for Playing</center></p>
+</footer>
+</body>
+</html>

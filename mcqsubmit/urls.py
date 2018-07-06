@@ -27,5 +27,6 @@ urlpatterns = [
     path('logout', views.logoutfunc),
     path('uploads', views.uploads),
     path('change/<int:iv>', views.change),
-    path('questionpage', views.addque)
+    path('questionpage', views.addque),
+    path('leaderboard',views.leardboard)
 ]

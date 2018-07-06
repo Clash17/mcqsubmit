@@ -5,6 +5,15 @@ from django.contrib.auth import authenticate, login, logout
 from .models import *
 
 
+class PairC:
+    name = " "
+    Count = 0
+
+    def __init__(self, name, count):
+        self.name = name
+        self.count = count
+
+
 # Create your views here.
 
 def signup(request):
@@ -87,15 +96,15 @@ def uploads(request):
         q = Queadd.objects.filter(uid=request.user)
         m = 0
         context = {
-            'q' : q,
-            'm' : m
+            'q': q,
+            'm': m
         }
         return render(request, "uploads.html", context)
     return HttpResponseRedirect("/")
 
 
 def change(request, iv):
-    if request.user.is_authenticated :
+    if request.user.is_authenticated:
         try:
             q = Queadd.objects.get(id=iv)
         except Exception:
@@ -112,3 +121,18 @@ def change(request, iv):
 def logoutfunc(request):
     logout(request)
     return render(request, "index.html")
+
+
+def leardboard(request):
+    q = User.objects.all()
+    vector = []
+    for i in q:
+        qc = Queadd.objects.filter(uid=i).count()
+        name = i.first_name + " " + i.last_name
+        pair = PairC(name, qc)
+
+        vector.append(pair)
+    context = {
+        'v': vector
+    }
+    return render(request, "leaderboard.html", context)

@@ -30,12 +30,12 @@
 	<div class="card my-3">
 
   <div class="card-header">
-    
+    {{i.count}}
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{i.qid.title}}</h5>
+    <h5 class="card-title">{{i.name}}</h5>
     
-    <a href="/change/{{i.id}}" class="btn btn-primary">Edit</a>
+    <a href="/change/{{i.rank}}" class="btn btn-primary">Edit</a>
   </div>
 </div>
 {% endfor %}

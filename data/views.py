@@ -128,7 +128,7 @@ def logoutfunc(request):
 
 
 def leardboard(request):
-    q = User.objects.all()
+    q = User.objects.filter(is_staff=0)
     vector = []
     for i in q:
         qc = Queadd.objects.filter(uid=i).count()

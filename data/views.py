@@ -27,11 +27,18 @@ def signup(request):
         uname = request.POST.get('uname')
         uemail = request.POST.get('uemail')
         upwd = request.POST.get('upwd')
-        user = User.objects.create_user(username=uname, email=uemail, password=upwd, first_name=ufname,
-                                        last_name=ulname)
-        u2 = authenticate(request, username=uname, password=upwd)
-        login(request, u2)
-        return render(request, 'questionpage.html')
+        try:
+            user = User.objects.create_user(username=uname, email=uemail, password=upwd, first_name=ufname,
+                                            last_name=ulname)
+            u2 = authenticate(request, username=uname, password=upwd)
+            login(request, u2)
+            return render(request, 'questionpage.html')
+        except Exception :
+            out = "Enter Different Username"
+            context = {
+                'out':out
+            }
+            return render(request, 'index.html', context)
     else:
         return render(request, 'index.html')
 

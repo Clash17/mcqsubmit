@@ -80,7 +80,8 @@
     <div class=" my-3 input-group">
   <div class=" input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" value="1" name="answer" {% if que.ans == '1' %} checked {% endif %} aria-label="Radio button for following text input" required><b style="font-size: 30px"> A)</b>
+
+    <input type="radio" value="1" name="answer" {% if que.ans == 1 %} checked {% endif %} aria-label="Radio button for following text input" required><b style="font-size: 30px"> A)</b>
     </div>
   </div>
   <textarea type="text" name="oa" value="" class="form-control" aria-label="Text input with radio button" required>{{que.oa}}</textarea>
@@ -89,7 +90,7 @@
  <div class=" my-3 input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio"  value="2" {% if que.ans == '2' %} checked {% endif %} name="answer" aria-label="Radio button for following text input"><b style="font-size: 30px"> B)</b>
+    <input type="radio"  value="2" {% if que.ans == 2 %} checked {% endif %} name="answer" aria-label="Radio button for following text input"><b style="font-size: 30px"> B)</b>
     </div>
   </div>
   <textarea type="text" name="ob" value="" class="form-control" aria-label="Text input with radio button" required>{{que.ob}}</textarea>
@@ -98,7 +99,7 @@
  <div class="my-3 input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" value="3" name="answer" {% if que.ans == '3' %} checked {% endif %} aria-label="Radio button for following text input"><b style="font-size: 30px"> C)</b>
+    <input type="radio" value="3" name="answer" {% if que.ans == 3 %} checked {% endif %} aria-label="Radio button for following text input"><b style="font-size: 30px"> C)</b>
     </div>
   </div>
   <textarea type="text" name="oc"  class="form-control" aria-label="Text input with radio button" required>{{que.oc}}</textarea>
@@ -107,7 +108,7 @@
  <div class="my-3 input-group">
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" value="4" name="answer" {% if que.ans == '4' %} checked {% endif %} aria-label="Radio button for following text input"><b style="font-size: 30px"> D)</b>
+    <input type="radio" value="4" name="answer" {% if que.ans == 4 %} checked {% endif %} aria-label="Radio button for following text input"><b style="font-size: 30px"> D)</b>
     </div>
   </div>
   <textarea type="text" name="od"  class="form-control" aria-label="Text input with radio button"required>{{que.od}}</textarea>

@@ -79,6 +79,7 @@ def questionadd(request):
         od = request.POST["od"]
         ans = request.POST["answer"]
         ques = Questions.objects.create(title=title, oa=oa, ob=ob, oc=oc, od=od, ans=ans)
+        print(ans)
         queadd = Queadd.objects.create(qid=ques, uid=request.user)
         return render(request, "questionpage.html")
     return HttpResponseRedirect("/")
@@ -131,6 +132,7 @@ def change(request, iv):
             return HttpResponseRedirect("/")
         if q.uid == request.user:
             que = q.qid
+            print(que.ans)
             context = {
                 'que': que
             }

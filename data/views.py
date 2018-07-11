@@ -207,15 +207,17 @@ def team(request):
     for i in fe:
         name = i.uid.first_name + " " + i.uid.last_name
         pair = PairC(name, count)
-        count += 1
-        vector1.append(pair)
+        if i.uid.is_staff == 0:
+            count += 1
+            vector1.append(pair)
     vector2 = []
     count = 1
     for i in be:
         name = i.uid.first_name + " " + i.uid.last_name
         pair = PairC(name, count)
-        count += 1
-        vector2.append(pair)
+        if i.uid.is_staff == 0:
+            count += 1
+            vector2.append(pair)
     context = {
         'fe': vector1,
         'be': vector2

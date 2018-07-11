@@ -64,7 +64,7 @@ def loginfunc(request):
         u2 = authenticate(request, username=uname, password=upwd)
         if u2 is not None:
             login(request, u2)
-            return render(request, 'questionpage.html')
+            #return render(request, 'questionpage.html')
             return HttpResponseRedirect("/team")
     out = "Username Password Combination does not match."
     context = {

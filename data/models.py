@@ -30,8 +30,8 @@ class Stream(models.Model):
 
     def __str__(self):
         m = " Not yet"
-        if choice == 1:
+        if self.choice == 1:
             m = " Front End "
-        elif choice == 2:
+        elif self.choice == 2:
             m = " Back End "
         return self.uid.first_name + m

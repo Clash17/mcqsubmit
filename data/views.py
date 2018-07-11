@@ -65,6 +65,7 @@ def loginfunc(request):
         if u2 is not None:
             login(request, u2)
             return render(request, 'questionpage.html')
+            return HttpResponseRedirect("/team")
     out = "Username Password Combination does not match."
     context = {
         'out': out

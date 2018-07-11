@@ -32,7 +32,8 @@ def signup(request):
                                             last_name=ulname)
             u2 = authenticate(request, username=uname, password=upwd)
             login(request, u2)
-            return render(request, 'questionpage.html')
+            #return render(request, 'questionpage.html')
+            return HttpResponseRedirect("/team")
         except Exception:
             out = "Enter Different Username"
             context = {
@@ -45,7 +46,8 @@ def signup(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect("/questionpage")
+        #return HttpResponseRedirect("/questionpage")
+        return HttpResponseRedirect("/team")
     return render(request, "index.html")
 
 
@@ -167,30 +169,54 @@ def leardboard(request):
 
 def votePage(request):
     if request.user.is_authenticated:
-        check = stream.objects.get(uid=request.user)
-        if check is None:
+        check = Stream.objects.filter(uid=request.user)
+        if not check:
             v = 2
         else:
-            v = check.choice
-        fe = stream.objects.filter(choice=1).count()
-        be = stream.objects.filter(choice=2).count()
+            v = check[0].choice
+        fe = Stream.objects.filter(choice=1).count()
+        be = Stream.objects.filter(choice=2).count()
         context = {
             'fe': fe,
             'be': be,
-            'ch': v
+            'v': v
         }
         return render(request, "vote.html", context)
     return HttpResponseRedirect("/")
 
 
-def votePage(request):
+def voteSubmit(request):
     if request.user.is_authenticated:
         s = request.POST['team']
-        check = stream.objects.get(uid=request.user)
-        if check is None:
-            pc = User.objects.create_user(uid=request.user, choice=s)
+        check = Stream.objects.filter(uid=request.user).first()
+        if not check:
+            pc = Stream.objects.create(uid=request.user, choice=s)
         else:
             check.choice = s
             check.save()
-        return render(request, "vote.html", context)
+        return team(request)
     return HttpResponseRedirect("/")
+
+
+def team(request):
+    fe = Stream.objects.filter(choice=1)
+    be = Stream.objects.filter(choice=2)
+    vector1 = []
+    count = 1
+    for i in fe:
+        name = i.uid.first_name + " " + i.uid.last_name
+        pair = PairC(name, count)
+        count += 1
+        vector1.append(pair)
+    vector2 = []
+    count = 1
+    for i in be:
+        name = i.uid.first_name + " " + i.uid.last_name
+        pair = PairC(name, count)
+        count += 1
+        vector2.append(pair)
+    context = {
+        'fe': vector1,
+        'be': vector2
+    }
+    return render(request, "team.html", context)

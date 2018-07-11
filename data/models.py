@@ -24,7 +24,7 @@ class Queadd(models.Model):
         return self.qid.title
 
 
-class stream(models.Model):
+class Stream(models.Model):
     uid = models.OneToOneField(User, default=0, on_delete=models.CASCADE)
     choice = models.IntegerField(default=0)
 

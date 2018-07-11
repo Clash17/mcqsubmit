@@ -22,3 +22,16 @@ class Queadd(models.Model):
 
     def __str__(self):
         return self.qid.title
+
+
+class stream(models.Model):
+    uid = models.OneToOneField(User, default=0, on_delete=models.CASCADE)
+    choice = models.IntegerField(default=0)
+
+    def __str__(self):
+        m = " Not yet"
+        if choice == 1:
+            m = " Front End "
+        elif choice == 2:
+            m = " Back End "
+        return self.uid.first_name + m

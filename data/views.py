@@ -33,10 +33,10 @@ def signup(request):
             u2 = authenticate(request, username=uname, password=upwd)
             login(request, u2)
             return render(request, 'questionpage.html')
-        except Exception :
+        except Exception:
             out = "Enter Different Username"
             context = {
-                'out':out
+                'out': out
             }
             return render(request, 'index.html', context)
     else:
@@ -65,7 +65,7 @@ def loginfunc(request):
             return render(request, 'questionpage.html')
     out = "Username Password Combination does not match."
     context = {
-        'out' : out
+        'out': out
     }
     return render(request, "index.html", context)
 
@@ -111,11 +111,11 @@ def uploads(request):
     if request.user.is_authenticated:
         q = Queadd.objects.filter(uid=request.user)
         vector = []
-        m=1
+        m = 1
         for i in q:
             pair = PairC(i.qid.title, m)
             pair.setRank(i.id)
-            m+=1
+            m += 1
             vector.append(pair)
         context = {
             'q': vector,
@@ -163,3 +163,34 @@ def leardboard(request):
         'v': vector
     }
     return render(request, "leaderboard.html", context)
+
+
+def votePage(request):
+    if request.user.is_authenticated:
+        check = stream.objects.get(uid=request.user)
+        if check is None:
+            v = 2
+        else:
+            v = check.choice
+        fe = stream.objects.filter(choice=1).count()
+        be = stream.objects.filter(choice=2).count()
+        context = {
+            'fe': fe,
+            'be': be,
+            'ch': v
+        }
+        return render(request, "vote.html", context)
+    return HttpResponseRedirect("/")
+
+
+def votePage(request):
+    if request.user.is_authenticated:
+        s = request.POST['team']
+        check = stream.objects.get(uid=request.user)
+        if check is None:
+            pc = User.objects.create_user(uid=request.user, choice=s)
+        else:
+            check.choice = s
+            check.save()
+        return render(request, "vote.html", context)
+    return HttpResponseRedirect("/")

@@ -68,17 +68,19 @@
     <div class="row">
 	<div class="col-lg-6">
 	<div class="my-3 input-group">
+        <form action="/voteSubmit" method="post">
   <div class="input-group-prepend mr-3">
     <div class="input-group-text">
-    <input type="radio" value="4" name="team" aria-label="Radio button for following text input" ><b style="font-size: 20px"> Frontend Team</b>
+    <input type="radio" value="1" name="team" {% if v == 1 %} checked {% endif %} aria-label="Radio button for following text input" ><b style="font-size: 20px"> Frontend Team</b>
     </div>
   </div>
+        {% csrf_token %}
   <div class="input-group-prepend">
     <div class="input-group-text">
-    <input type="radio" value="4" name="team" aria-label="Radio button for following text input" ><b style="font-size: 20px"> Backend Team</b>
+    <input type="radio" value="2" name="team" {% if v == 2 %} checked {% endif %} aria-label="Radio button for following text input" ><b style="font-size: 20px"> Backend Team</b>
     </div>
   </div>
-  
+  </form>
 </div>	
     <a href="#" class="btn btn-success">Submit</a>
   </div>
@@ -88,13 +90,13 @@
     <div class="input-group-text">
     <b style="font-size: 20px"> Frontend Team Count</b>
     </div>
-	 <input type="text" class="form-control" style="width:4rem"readonly>
+	 <input type="text" value='{{fe}}' class="form-control" style="width:4rem"readonly>
   </div>
   <div class="input-group-prepend">
     <div class="input-group-text">
     <b style="font-size: 20px"> Backend Team Count</b>
     </div>
-	<input type="text" class="form-control" style="width:4rem"readonly>
+	<input type="text" value='{{be}}' class="form-control" style="width:4rem"readonly>
   </div>
   
 </div>	

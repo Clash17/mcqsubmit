@@ -57,7 +57,7 @@
    
     <div class="col-auto">
       <label class="sr-only" for="inlineFormInput">Value</label>
-      <input type="text" value="{{q.ans}}" class="form-control " style="text-align:center;" id="inlineFormInput" placeholder="Integer Value" required>
+      <input type="text" name="ans" value="{{q.ans}}" class="form-control " style="text-align:center;" id="inlineFormInput" placeholder="Integer Value" required>
     </div>
     <div class="col-auto d-flex justify-content-center mt-5" style="">
       <button type="submit" class="btn btn-primary ">Submit</button>
@@ -72,7 +72,7 @@
   <div class="card-body">
     <p class="card-title">Enter your C/CPP/Python3 Code related to your question in the space below</p>
     
-    <textarea name="title"  class="form-control" rows="25" style="background-color: rgba(0,0,0,0.8);color: white; padding-left:25px;padding-right:25px; overflow-y:auto;"  required >{{q.code}}</textarea>
+    <textarea name="code"  class="form-control" rows="25" style="background-color: rgba(0,0,0,0.8);color: white; padding-left:25px;padding-right:25px; overflow-y:auto;"  required >{{q.code}}</textarea>
 	  
     
   </div>

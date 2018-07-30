@@ -67,7 +67,8 @@
               <input name="uname" type="text" required autocomplete="off"/>
         </div>
 
-
+            <form action="/login" method="post">
+          {% csrf_token %}
 
           <div class="field-wrap">
             <label>

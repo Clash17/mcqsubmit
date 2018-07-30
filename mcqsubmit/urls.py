@@ -28,7 +28,7 @@ urlpatterns = [
     path('uploads', views.uploads),
     path('change/<int:iv>', views.change),
     path('questionpage', views.addque),
-    path('leaderboard', views.leardboard),
+    path('leaderboard/', views.leardboard),
     # path('vote', views.votePage),
     # path('voteSubmit', views.voteSubmit),
     # path('team', views.team),

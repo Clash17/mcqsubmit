@@ -8,6 +8,7 @@ from .models import *
 class PairC:
     name = " "
     count = 0
+    name2 = ""
     rank = 0
 
     def __init__(self, name, count):
@@ -16,6 +17,9 @@ class PairC:
 
     def setRank(self, r):
         self.rank = r
+
+    def setName(self, name2):
+        self.name2 = name2
 
 
 # Create your views here.
@@ -148,8 +152,10 @@ def leardboard(request):
     vector = []
     for i in q:
         qc = Queadd.objects.filter(uid=i).count()
+        p = Player.objects.get(uid=i)
         name = i.first_name + " " + i.last_name
         pair = PairC(name, qc)
+        pair.setName(p.fname2 + " " + p.lname2)
         vector.append(pair)
     vector.sort(key=operator.attrgetter('count'))
     vector.reverse()

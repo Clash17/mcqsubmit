@@ -22,19 +22,23 @@ class PairC:
 
 def signup(request):
     if request.method == 'POST':
-        ufname = request.POST.get('ufname')
-        ulname = request.POST.get('ulname')
+        ufname1 = request.POST.get('ufname1')
+        ulname1 = request.POST.get('ulname1')
+        ufname2 = request.POST.get('ufname2')
+        ulname2 = request.POST.get('ulname2')
         uname = request.POST.get('uname')
         uemail = request.POST.get('uemail')
         upwd = request.POST.get('upwd')
         try:
-            user = User.objects.create_user(username=uname, email=uemail, password=upwd, first_name=ufname,
-                                            last_name=ulname)
+            user = User.objects.create_user(username=uname, email=uemail, password=upwd, first_name=ufname1,
+                                            last_name=ulname1)
+            p = Player.objects.create(fname1=ufname1, lname1=ulname1, fname2=ufname2, lname2=ulname2, uid=user)
             u2 = authenticate(request, username=uname, password=upwd)
+            p.save()
             login(request, u2)
-            #return render(request, 'questionpage.html')
-            return HttpResponseRedirect("/team")
-        except Exception:
+            return render(request, 'questionpage.html')
+                #return HttpResponseRedirect("/team")
+        except Exception :
             out = "Enter Different Username"
             context = {
                 'out': out
@@ -46,8 +50,8 @@ def signup(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        #return HttpResponseRedirect("/questionpage")
-        return HttpResponseRedirect("/team")
+        return HttpResponseRedirect("/questionpage")
+        # return HttpResponseRedirect("/team")
     return render(request, "index.html")
 
 
@@ -76,14 +80,11 @@ def loginfunc(request):
 def questionadd(request):
     if request.method == 'POST' and request.user.is_authenticated:
         title = request.POST["title"]
-        oa = request.POST["oa"]
-        ob = request.POST["ob"]
-        oc = request.POST["oc"]
-        od = request.POST["od"]
-        ans = request.POST["answer"]
-        ques = Questions.objects.create(title=title, oa=oa, ob=ob, oc=oc, od=od, ans=ans)
-        print(ans)
+        code = request.POST["code"]
+        ans = request.POST["ans"]
+        ques = Questions.objects.create(title=title, code=code, ans=ans)
         queadd = Queadd.objects.create(qid=ques, uid=request.user)
+        queadd.save()
         return render(request, "questionpage.html")
     return HttpResponseRedirect("/")
 
@@ -91,19 +92,13 @@ def questionadd(request):
 def qutionchange(request, idv):
     if request.method == 'POST' and request.user.is_authenticated:
         title = request.POST["title"]
-        oa = request.POST["oa"]
-        ob = request.POST["ob"]
-        oc = request.POST["oc"]
-        od = request.POST["od"]
-        ans = request.POST["answer"]
+        code = request.POST["code"]
+        ans = request.POST["ans"]
         q = Queadd.objects.get(id=idv)
         if q.uid == request.user:
             que = q.qid
             que.title = title
-            que.oa = oa
-            que.ob = ob
-            que.oc = oc
-            que.od = od
+            que.code = code
             que.ans = ans
             que.save()
             return HttpResponseRedirect("/uploads")
@@ -137,7 +132,7 @@ def change(request, iv):
             que = q.qid
             print(que.ans)
             context = {
-                'que': que
+                'q': que
             }
         return render(request, "questionupdate.html", context)
     return HttpResponseRedirect("/")

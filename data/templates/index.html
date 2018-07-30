@@ -32,7 +32,7 @@
           <div class="top-row">
             <div class="field-wrap">
               <label>
-                1)First Name<span class="req">*</span>
+                1) First Name<span class="req">*</span>
               </label>
               <input name="ufname1" type="text" required autocomplete="off" />
             </div>
@@ -44,7 +44,8 @@
               <input name="ulname1" type="text" required autocomplete="off"/>
             </div>
           </div>
-	   <div class="field-wrap">
+           <div class="top-row">
+	           <div class="field-wrap">
               <label>
                2) First Name<span class="req">*</span>
               </label>
@@ -57,7 +58,7 @@
               </label>
               <input name="ulname2" type="text" required autocomplete="off"/>
             </div>
-          </div>
+           </div>
 
 	    <div class="field-wrap">
               <label>
@@ -83,7 +84,7 @@
           </div>
           
           <button type="submit" class="button button-block"/>Get Started</button>
-          
+
           </form>
           
 
@@ -92,8 +93,7 @@
         <div id="login">   
 
 
-          <form action="/login" method="post">
-          {% csrf_token %}
+
             <div class="field-wrap">
             <label>
               Username <span class="req">*</span>
@@ -110,7 +110,7 @@
           
 
           
-          <button class="button button-block"/>Log In</button>
+          <button class="button button-block"/>Get Started </button>
           
           </form>
 
